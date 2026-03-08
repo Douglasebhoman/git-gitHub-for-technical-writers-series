@@ -39,6 +39,7 @@ git-github-for-technical-writers-series/
 ├── README.md                       ← Series index (you are here)
 ├── CONTRIBUTING.md                 ← How to suggest corrections or improvements
 ├── docs/
+│   ├── introduction.md
 │   ├── part-1-git-basics.md
 │   ├── part-2-git-vs-github.md
 │   ├── part-3-versioning.md
