@@ -22,6 +22,7 @@ No prior experience with Git, GitHub, or the command line is assumed.
 
 | Part | Title | Status |
 |------|-------|--------|
+|   | [introduction](docs/Introduction.md)
 | 1 | [Git Basics for Technical Writers](docs/part-1-git-basics.md) | ✅ Published |
 | 2 | [Git vs GitHub — Understanding the Documentation Workflow](docs/part-2-git-vs-github.md) | ✅ Published |
 | 3 | [From Editing Files to Managing Versions](docs/part-3-versioning.md) | ✅ Published |
