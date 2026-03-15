@@ -28,7 +28,7 @@ No prior experience with Git, GitHub, or the command line is assumed.
 | 3 | [From Editing Files to Managing Versions](docs/part-3-versioning.md) | ✅ Published |
 | 4 | [Pull Requests — Controlling Documentation State](docs/part-4-pull-requests.md) | ✅ Published |
 | 5 | [CI/CD for Technical Writers — How Documentation Moves from Repository to Production](docs/part-5-cicd-pipelines.md) | ✅ Published |
-| 6 | [Documentation Repository Architecture — Structuring Docs That Scale](docs/part-6-repo-architecture.md) | 🔄 In Progress |
+| 6 | [Documentation Repository Architecture — Structuring Docs That Scale](docs/part-6-repo-architecture.md) |✅ Published   |
 
 ---
 
