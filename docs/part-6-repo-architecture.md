@@ -2,7 +2,7 @@
 
 **Series:** Git & GitHub for Technical Writers
 **Status:** ✅ Published
-**Hashnode:** [Read on Hashnode](https://git-and-github-for-technical-writers.hashnode.dev/documentation-architecture-for-technical-writers)
+**Hashnode:** [Read on Hashnode](https://lnkd.in/dGtez8wZ)
 
 ---
 
