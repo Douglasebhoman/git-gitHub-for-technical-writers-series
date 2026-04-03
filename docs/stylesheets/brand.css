@@ -2,56 +2,43 @@
    BRAND STYLESHEET — Douglas Ebhoman
    Navy: #18222C | Gold: #A68959 | Silver: #B8C0CC
    Fonts: DM Mono + Lora
-   
-   CRITICAL: These overrides must come AFTER Material theme
-   styles. The !important flags ensure brand colours win.
 ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
-/* ── Force brand navy as background everywhere ─────────────── */
+/* ── Colour tokens ─────────────────────────────────────────── */
 :root,
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:            #A68959;
-  --md-primary-fg-color--light:     #C9A96E;
-  --md-primary-fg-color--dark:      #8C7248;
-  --md-accent-fg-color:             #A68959;
-
-  /* These are the critical background overrides */
-  --md-default-bg-color:            #18222C !important;
-  --md-default-bg-color--light:     #1B2632 !important;
-  --md-default-bg-color--lighter:   #1E2935 !important;
-  --md-default-bg-color--lightest:  #232E3D !important;
-
-  --md-default-fg-color:            #E8E6E1;
-  --md-default-fg-color--light:     #B8C0CC;
-  --md-default-fg-color--lighter:   #8892A4;
-  --md-default-fg-color--lightest:  #4A5568;
-
-  --md-code-bg-color:               #1E2935;
-  --md-code-fg-color:               #E8E6E1;
-  --md-typeset-color:               #E8E6E1;
-  --md-typeset-a-color:             #A68959;
-
-  /* Kill Material's blue accent completely */
-  --md-accent-fg-color:             #A68959 !important;
-  --md-accent-bg-color:             rgba(166,137,89,0.1) !important;
+  --md-primary-fg-color:           #A68959;
+  --md-primary-fg-color--light:    #C9A96E;
+  --md-primary-fg-color--dark:     #8C7248;
+  --md-accent-fg-color:            #A68959 !important;
+  --md-accent-bg-color:            rgba(166,137,89,0.1) !important;
+  --md-default-bg-color:           #18222C !important;
+  --md-default-bg-color--light:    #1B2632 !important;
+  --md-default-bg-color--lighter:  #1E2935 !important;
+  --md-default-bg-color--lightest: #232E3D !important;
+  --md-default-fg-color:           #E8E6E1;
+  --md-default-fg-color--light:    #B8C0CC;
+  --md-default-fg-color--lighter:  #8892A4;
+  --md-default-fg-color--lightest: #4A5568;
+  --md-code-bg-color:              #1E2935;
+  --md-code-fg-color:              #E8E6E1;
+  --md-typeset-color:              #E8E6E1;
+  --md-typeset-a-color:            #A68959;
 }
 
-/* ── Force background on every major container ─────────────── */
+/* ── Background containers ─────────────────────────────────── */
 body,
 .md-container,
-.md-main,
-.md-main__inner,
-.md-content,
-.md-content__inner,
 .md-sidebar,
 .md-sidebar__inner,
 .md-sidebar__scrollwrap {
   background-color: #18222C !important;
 }
 
-.md-main {
+.md-main,
+.md-main__inner {
   background-color: #1B2632 !important;
 }
 
@@ -203,7 +190,7 @@ body,
   color: #C9A96E !important;
 }
 
-/* ── Lists — kill Material blue, use gold ──────────────────── */
+/* ── Lists ─────────────────────────────────────────────────── */
 .md-typeset ul,
 .md-typeset ol {
   color: #B8C0CC !important;
@@ -214,7 +201,6 @@ body,
   color: #B8C0CC !important;
 }
 
-/* Bullet markers — gold, not blue */
 .md-typeset ul li::marker {
   color: #A68959 !important;
 }
@@ -225,7 +211,6 @@ body,
   font-size: 0.85em !important;
 }
 
-/* Kill any Material blue on list items */
 .md-typeset ul li::before {
   background-color: #A68959 !important;
   color: #A68959 !important;
@@ -365,6 +350,47 @@ body,
   border-color: rgba(166,137,89,0.2) !important;
 }
 
+/* ── Copy button — gold icon, gold checkmark on copy ───────── */
+.md-clipboard {
+  color: rgba(166,137,89,0.35) !important;
+  transition: color 0.2s ease !important;
+  position: relative !important;
+}
+
+.md-clipboard:hover {
+  color: #A68959 !important;
+}
+
+/* Hide the default white tooltip entirely */
+.md-tooltip,
+.md-tooltip--active {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Gold checkmark that floats up and fades after copying */
+.md-clipboard:focus::after,
+.md-clipboard:active::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: -28px !important;
+  right: 0 !important;
+  color: #A68959 !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+  animation: copied-flash 1.4s ease forwards !important;
+  pointer-events: none !important;
+}
+
+@keyframes copied-flash {
+  0%   { opacity: 0; transform: translateY(6px); }
+  15%  { opacity: 1; transform: translateY(0);   }
+  70%  { opacity: 1; transform: translateY(0);   }
+  100% { opacity: 0; transform: translateY(-6px);}
+}
+
 /* ── Selection ─────────────────────────────────────────────── */
 ::selection {
   background: #A68959 !important;
@@ -376,79 +402,3 @@ body,
 ::-webkit-scrollbar-track { background: #18222C; }
 ::-webkit-scrollbar-thumb { background: rgba(166,137,89,0.4); }
 ::-webkit-scrollbar-thumb:hover { background: #A68959; }
-
-/* ── Copy button ───────────────────────────────────────────── */
-.md-clipboard {
-  color: rgba(166,137,89,0.4) !important;
-  transition: color 0.2s ease !important;
-}
-
-.md-clipboard:hover {
-  color: #A68959 !important;
-}
-
-/* ── Copy success tooltip ──────────────────────────────────── */
-.md-tooltip {
-  background-color: #A68959 !important;
-  color: #18222C !important;
-  border-radius: 0 !important;
-  font-family: 'DM Mono', monospace !important;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.08em !important;
-}
-
-/* ── Code block copy button focus state ────────────────────── */
-.md-code__content .md-clipboard::after {
-  content: "Copy" !important;
-  font-family: 'DM Mono', monospace !important;
-  font-size: 0.65rem !important;
-  letter-spacing: 0.1em !important;
-  color: #A68959 !important;
-}
-
-/* ── Copied confirmation state ─────────────────────────────── */
-.md-clipboard--inline:focus,
-.md-clipboard:focus {
-  color: #A68959 !important;
-  outline: 1px solid rgba(166,137,89,0.4) !important;
-}
-
-/* ── Copy button styling ───────────────────────────────────── */
-.md-clipboard {
-  color: rgba(166,137,89,0.3) !important;
-  transition: color 0.2s ease !important;
-}
-
-.md-clipboard:hover {
-  color: #A68959 !important;
-}
-
-/* ── Hide the default white tooltip completely ─────────────── */
-.md-tooltip,
-.md-tooltip--active {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-
-/* ── Replace with gold checkmark via clipboard focus state ─── */
-.md-clipboard:focus::after,
-.md-clipboard:active::after {
-  content: "✓" !important;
-  position: absolute !important;
-  top: -24px !important;
-  right: 0 !important;
-  background-color: transparent !important;
-  color: #A68959 !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  animation: copied-flash 1.2s ease forwards !important;
-  pointer-events: none !important;
-}
-
-@keyframes copied-flash {
-  0%   { opacity: 0; transform: translateY(4px); }
-  20%  { opacity: 1; transform: translateY(0); }
-  70%  { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-4px); }
-}
