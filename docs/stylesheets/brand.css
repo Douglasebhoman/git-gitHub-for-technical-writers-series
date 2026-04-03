@@ -412,3 +412,43 @@ body,
   color: #A68959 !important;
   outline: 1px solid rgba(166,137,89,0.4) !important;
 }
+
+/* ── Copy button styling ───────────────────────────────────── */
+.md-clipboard {
+  color: rgba(166,137,89,0.3) !important;
+  transition: color 0.2s ease !important;
+}
+
+.md-clipboard:hover {
+  color: #A68959 !important;
+}
+
+/* ── Hide the default white tooltip completely ─────────────── */
+.md-tooltip,
+.md-tooltip--active {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* ── Replace with gold checkmark via clipboard focus state ─── */
+.md-clipboard:focus::after,
+.md-clipboard:active::after {
+  content: "✓" !important;
+  position: absolute !important;
+  top: -24px !important;
+  right: 0 !important;
+  background-color: transparent !important;
+  color: #A68959 !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  animation: copied-flash 1.2s ease forwards !important;
+  pointer-events: none !important;
+}
+
+@keyframes copied-flash {
+  0%   { opacity: 0; transform: translateY(4px); }
+  20%  { opacity: 1; transform: translateY(0); }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
