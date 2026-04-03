@@ -376,3 +376,39 @@ body,
 ::-webkit-scrollbar-track { background: #18222C; }
 ::-webkit-scrollbar-thumb { background: rgba(166,137,89,0.4); }
 ::-webkit-scrollbar-thumb:hover { background: #A68959; }
+
+/* ── Copy button ───────────────────────────────────────────── */
+.md-clipboard {
+  color: rgba(166,137,89,0.4) !important;
+  transition: color 0.2s ease !important;
+}
+
+.md-clipboard:hover {
+  color: #A68959 !important;
+}
+
+/* ── Copy success tooltip ──────────────────────────────────── */
+.md-tooltip {
+  background-color: #A68959 !important;
+  color: #18222C !important;
+  border-radius: 0 !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* ── Code block copy button focus state ────────────────────── */
+.md-code__content .md-clipboard::after {
+  content: "Copy" !important;
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.65rem !important;
+  letter-spacing: 0.1em !important;
+  color: #A68959 !important;
+}
+
+/* ── Copied confirmation state ─────────────────────────────── */
+.md-clipboard--inline:focus,
+.md-clipboard:focus {
+  color: #A68959 !important;
+  outline: 1px solid rgba(166,137,89,0.4) !important;
+}
